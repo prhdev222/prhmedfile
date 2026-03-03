@@ -1,0 +1,26 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.venv
+venv
+env
+
+# Env (ตั้งค่าใน Koyeb แทน)
+.env
+.env.*
+
+# IDE / OS
+.idea
+.vscode
+*.swp
+.DS_Store
+
+# Optional
+*.md
+!README.md

@@ -22,6 +22,9 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-here')
 # Database: Use DATABASE_URL (Neon PostgreSQL) if provided, otherwise fallback to local SQLite
 database_url = os.getenv('DATABASE_URL')
 if database_url:
+    # Neon (และบาง provider) ให้ postgres:// แต่ SQLAlchemy ต้องการ postgresql://
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
     app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///hospital.db'
